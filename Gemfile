@@ -39,3 +39,9 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
 end
+
+group :development do
+    gem 'hpricot' # for html2haml
+end
+
+gem 'haml'
