@@ -9,8 +9,8 @@ When /^I navigate to the new project creation page$/ do
 end
 
 When /^I create a new project$/ do
-    fill_in('Name', with: 'TextMate 2')
-    click_button 'Create Project'
+  fill_in('Name', with: 'TextMate 2')
+  click_button 'Create Project'
 end
 
 Then /^I should be shown the project created verification messsage$/ do
@@ -25,4 +25,17 @@ Then /^I should see the project name in the title$/ do
   within('head title') do
     page.should have_content('TextMate 2 - Projects - Ticketee')
   end
+end
+
+When /^I try to create a project without a name$/ do
+  fill_in('Name', with: '')
+  click_button 'Create Project'
+end
+
+Then /^I should be shown an error message$/ do
+  page.should have_content('Project has not been created.')
+end
+
+Then /^I should see the reason$/ do
+  page.should have_content('Name can\'t be blank')
 end
