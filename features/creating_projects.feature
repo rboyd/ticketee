@@ -10,3 +10,5 @@ Scenario: Creating a project
   When I navigate to the new project creation page
   And I create a new project
   Then I should be shown the project created verification messsage
+  And I should be on the project page of the new project
+  And I should see the project name in the title
